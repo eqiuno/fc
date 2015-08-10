@@ -1,5 +1,5 @@
 {
-  "name": "promise-steps",
+  "name": "fc",
   "version": "0.5.0",
   "description": "flow control for promise",
   "main": "index.js",
