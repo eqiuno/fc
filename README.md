@@ -3,7 +3,7 @@ flowc is a tool to controll flows of promises/functions.
 
 ## usage
 
-1. promise flowing
+### 1. promise flowing
 ```
 var bb = require('bluebird'); // bluebird is not neccessary, only for testing
 var fc = require('flows');
@@ -21,7 +21,7 @@ fc(a, b).then(function(v) {
 });
 ```
 
-2. passing value 
+### 2. passing value 
 ```
 var bb = require('bluebird'); // bluebird is not neccessary, only for testing
 var fc = require('flows');
@@ -38,7 +38,7 @@ fc(a, b).then(function(v) {
 }).catch(function(err) {
 });
 ```
-3. handle error
+### 3. handle error
 ```
 var bb = require('bluebird'); // bluebird is not neccessary, only for testing
 var fc = require('flows');
@@ -56,7 +56,7 @@ fc(a, b).then(function(v) {
   console.log(err.message); //test
 });
 ```
-4. mix promise and sync function
+### 4. mix promise and sync function
 ```
 var bb = require('bluebird'); // bluebird is not neccessary, only for testing
 var fc = require('flows');
