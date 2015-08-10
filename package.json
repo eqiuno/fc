@@ -15,8 +15,7 @@
     "promise"
   ],
   "devDependencies": {
-    "mocha": "2.2.5",
-    "bluebird": "2.9.34"
+    "mocha": "2.2.5"
   },
   "author": "findliupeng@gmail.com",
   "license": "MIT"
