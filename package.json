@@ -1,17 +1,23 @@
 {
   "name": "promise-steps",
   "version": "0.5.0",
-  "description": "async waterfall style of bluebird",
+  "description": "flow control for promise",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/test.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eqiuno/fc.git"
+  },
   "keywords": [
-    "bluebird",
-    "control",
-    "follow",
+    "flow control",
     "promise"
   ],
+  "devDependencies": {
+    "mocha": "2.2.5",
+    "bluebird": "2.9.34"
+  },
   "author": "findliupeng@gmail.com",
-  "license": "ISC"
+  "license": "MIT"
 }

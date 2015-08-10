@@ -41,6 +41,7 @@ module.exports = exports = function (fns) {
                 });
                 rtn   = p;
             }
+
             return rtn.then(onFilled, onReject);
         }
 
