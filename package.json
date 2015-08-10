@@ -1,0 +1,17 @@
+{
+  "name": "promise-steps",
+  "version": "0.5.0",
+  "description": "async waterfall style of bluebird",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
+  "keywords": [
+    "bluebird",
+    "control",
+    "follow",
+    "promise"
+  ],
+  "author": "findliupeng@gmail.com",
+  "license": "ISC"
+}
