@@ -5,6 +5,7 @@ module.exports = exports = function (fns) {
         fns = slice.call(arguments);
     }
 
+    var self = this;
     return new Promise(function (resolve, reject) {
         var idx = 0;
 
@@ -29,7 +30,7 @@ module.exports = exports = function (fns) {
             }
             else if (isFunction(fn)) {
                 try {
-                    rtn = fn.apply(this, slice.call(arguments));
+                    rtn = fn.apply(self, slice.call(arguments));
                 } catch (e) {
                     return reject(e);
                 }

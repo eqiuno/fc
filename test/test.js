@@ -1,4 +1,5 @@
 var assert = require('assert');
+var should = require('should');
 var fc     = require('..');
 describe('fc_promises', function () {
     it('array', function (done) {
@@ -98,8 +99,8 @@ describe('fc_pass_value', function () {
     });
 });
 
-describe('bind this', function () {
-    it('this', function (done) {
+describe('bind', function () {
+    it('->this', function (done) {
         function a() {
             this.a = 100;
         }
@@ -119,7 +120,22 @@ describe('bind this', function () {
             done(err);
         })
     });
-})
+
+    it('->bind this', function (done) {
+        function a() {
+            return p(this.a + 200);
+        }
+
+        function b(v) {
+            return v + 300
+        }
+
+        fc.bind({a: 1000})(a, b).then(function (v) {
+            (v).should.eql(1500);
+            done();
+        })
+    })
+});
 
 function f(n) {
     return function () {
