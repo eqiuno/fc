@@ -133,6 +133,8 @@ describe('bind', function () {
         fc.bind({a: 1000})(a, b).then(function (v) {
             (v).should.eql(1500);
             done();
+        }).catch(function (err) {
+            done(err);
         })
     })
 });
