@@ -5,7 +5,7 @@ module.exports = exports = function (fns) {
         fns = slice.call(arguments);
     }
 
-    var self = this;
+    var self = {};
     return new Promise(function (resolve, reject) {
         var idx = 0;
 
@@ -28,7 +28,7 @@ module.exports = exports = function (fns) {
             if (isPromise(fn)) {
                 rtn = fn;
             }
-            else if (isFunction(fn)) {
+            if (isFunction(fn)) {
                 try {
                     rtn = fn.apply(self, slice.call(arguments));
                 } catch (e) {
@@ -36,18 +36,37 @@ module.exports = exports = function (fns) {
                 }
             }
 
+            if (Array.isArray(fn)) {
+                rtn = Promise.all(promiseArray(fn, val));
+            }
+
             if (!isPromise(rtn)) {
-                var p = new Promise(function (resolve) {
-                    resolve(rtn);
-                });
-                rtn   = p;
+                rtn = Promise.resolve(rtn);
             }
 
             return rtn.then(onFilled, onReject);
         }
 
+        function promiseArray(arr, value) {
+            var rtn = [];
+            arr.forEach(function (item) {
+                if (isFunction(item)) {
+                    var result = item.apply(self, [value]);
+                    return rtn.push(result);
+                }
+                if (isPromise(item)) {
+                    return rtn.push(item);
+                }
+
+                return rtn.push(Promise.resolve(item));
+            });
+
+            return rtn;
+        }
+
         next();
     });
+
 
     function isPromise(rtn) {
         return rtn && 'function' === typeof rtn.then;
