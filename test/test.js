@@ -120,7 +120,7 @@ describe('bind', function () {
             done(err);
         })
     });
-
+/**
     it('->bind this', function (done) {
         function a() {
             return p(this.a + 200);
@@ -137,6 +137,7 @@ describe('bind', function () {
             done(err);
         })
     })
+    */
 });
 
 function f(n) {
